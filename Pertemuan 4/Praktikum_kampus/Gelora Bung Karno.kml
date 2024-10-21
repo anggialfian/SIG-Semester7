@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name>Gelora Bung Karno </name>
+    <Style id="poly-000000-1200-77-nodesc-normal">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.2</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <Style id="poly-000000-1200-77-nodesc-highlight">
+      <LineStyle>
+        <color>ff000000</color>
+        <width>1.8</width>
+      </LineStyle>
+      <PolyStyle>
+        <color>4d000000</color>
+        <fill>1</fill>
+        <outline>1</outline>
+      </PolyStyle>
+      <BalloonStyle>
+        <text><![CDATA[<h3>$[name]</h3>]]></text>
+      </BalloonStyle>
+    </Style>
+    <StyleMap id="poly-000000-1200-77-nodesc">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#poly-000000-1200-77-nodesc-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#poly-000000-1200-77-nodesc-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Placemark>
+      <name>Gelora Bung Karno </name>
+      <styleUrl>#poly-000000-1200-77-nodesc</styleUrl>
+      <Polygon>
+        <outerBoundaryIs>
+          <LinearRing>
+            <tessellate>1</tessellate>
+            <coordinates>
+              106.798206,-6.2147398,0
+              106.7982704,-6.2204993,0
+              106.8032486,-6.2226751,0
+              106.8048365,-6.2246589,0
+              106.8087847,-6.2220139,0
+              106.8083126,-6.2213313,0
+              106.8082268,-6.2157638,0
+              106.8061239,-6.2156144,0
+              106.8062527,-6.212756,0
+              106.798206,-6.2147398,0
+            </coordinates>
+          </LinearRing>
+        </outerBoundaryIs>
+      </Polygon>
+    </Placemark>
+  </Document>
+</kml>
