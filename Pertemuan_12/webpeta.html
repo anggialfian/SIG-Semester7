@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Website</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+        integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+
+    <style>
+        #mapid {
+            height: 1080px;
+            width: 100%;
+        }
+    </style>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+        integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="">
+        </script>
+</head>
+
+<body>
+    <div id="mapid"></div>
+    <script>
+        var map = L.map('mapid').setView([-6.362731559764796, 106.84442546959338], 14);
+        // var marker = L.marker([-6.595038, 106.816635]).addTo(map);
+        // var circle = L.circle([-6.585038, 106.815635], {
+        //     color: 'red',
+        //     fillColor: '#f03',
+        //     fillOpacity: 0.5,
+        //     radius: 500
+        // }).addTo(map);
+
+        var aoi = {
+            "type": "FeatureCollection",
+            "features": [
+                {
+                    "type": "FeatureCollection",
+                    "features": [
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kampus": "Kampus A STT-NF",
+                                "kota": "Kota Depok",
+                                "alamat": "Kelapa Dua Depok"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.84442546959338,
+                                    -6.362731559764796
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 1
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kota": "Kota Jakarta",
+                                "kampus": "Kampus B STT-NF",
+                                "alamat": "Srengseng Sawah Jaksel"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.8327094575784,
+                                    -6.352986999901788
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 2
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kota": "Kota Depok",
+                                "kampus": "Universitas Indonesia",
+                                "alamat": "Depok"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.82946699999843,
+                                    -6.363483755899836
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 3
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kota": "Kota Jakarta",
+                                "kampus": "Universitas Pancasila",
+                                "alamat": "Lenteng Agung Jaksel"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.83281400000482,
+                                    -6.339242994853052
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 4
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kota": "Kota Depok",
+                                "kampus": "Universitas Gunadarma Gunadarma",
+                                "alamat": "Kelapa Dua Depok"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.83986312499894,
+                                    -6.3536435435311915
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 5
+                        },
+                        {
+                            "type": "Feature",
+                            "properties": {
+                                "kota": "Kota Jakarta",
+                                "kampus": "Politeknik Negeri Media Kreatif",
+                                "alamat": "Srengseng Sawah Jaksel"
+                            },
+                            "geometry": {
+                                "coordinates": [
+                                    106.82703627116189,
+                                    -6.347457005402617
+                                ],
+                                "type": "Point"
+                            },
+                            "id": 6
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Add GeoJSON features and bind popups
+        L.geoJSON(aoi, {
+            pointToLayer: function (feature, latlng) {
+                var marker = L.marker(latlng);
+                marker.bindPopup("<b>" + feature.properties.kampus + "</b><br>" + feature.properties.kota + "</b><br>" + feature.properties.alamat);
+                return marker;
+            }
+        }).addTo(map);
+
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
+</body>
+
+</html>
